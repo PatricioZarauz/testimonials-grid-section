@@ -1,0 +1,101 @@
+$moderate_violet: hsl(263, 55%, 52%);
+$very_dark_grayish_blue: hsl(217, 19%, 35%);
+$very_dark_blackish_blue: hsl(219, 29%, 14%);
+$white: hsl(0, 0%, 100%);
+$light_gray: hsl(0, 0%, 81%);
+$light_grayish_blue: hsl(210, 46%, 95%);
+
+@mixin dark-light-article($isLight: false) {
+  color: $light_gray;
+
+  @if $isLight {
+    color: $very_dark_blackish_blue;
+  }
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 0.8125rem;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-weight: 500;
+}
+
+picture,
+img {
+  display: block;
+}
+
+body {
+  background-color: $light_grayish_blue;
+}
+
+.card-container {
+  display: grid;
+  gap: 1rem;
+  grid-template-areas:
+    "a"
+    "b"
+    "c"
+    "d"
+    "e";
+
+  @media (min-width: 35rem) {
+    grid-template-areas:
+      "a a"
+      "b c"
+      "d d"
+      "e e";
+  }
+
+  @media (min-width: 60rem) {
+    grid-template-areas:
+      "a a b e"
+      "c d d e";
+  }
+}
+
+article {
+  padding: 1.5rem;
+}
+
+article:nth-of-type(1) {
+  @include dark-light-article;
+
+  grid-area: a;
+  background-color: $moderate_violet;
+}
+
+article:nth-of-type(2) {
+  @include dark-light-article;
+
+  grid-area: b;
+  background-color: $very_dark_grayish_blue;
+}
+
+article:nth-of-type(3) {
+  @include dark-light-article(true);
+
+  grid-area: c;
+  background-color: $white;
+}
+
+article:nth-of-type(4) {
+  @include dark-light-article;
+
+  grid-area: d;
+  background-color: $very_dark_blackish_blue;
+}
+
+article:nth-of-type(5) {
+  @include dark-light-article(true);
+
+  grid-area: e;
+  background-color: $white;
+}
