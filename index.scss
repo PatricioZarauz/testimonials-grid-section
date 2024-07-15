@@ -36,9 +36,14 @@ body {
   background-color: $light_grayish_blue;
 }
 
+main {
+  margin-inline: 1.8rem;
+  margin-block: 5.5rem;
+}
+
 .card-container {
   display: grid;
-  gap: 1rem;
+  gap: 1.5rem;
   grid-template-areas:
     "a"
     "b"
@@ -62,7 +67,21 @@ body {
 }
 
 article {
-  padding: 1.5rem;
+  padding-block: 1.9rem;
+  padding-inline: 2.4rem;
+
+  .author-profile {
+    display: flex;
+    gap: 1.25rem;
+
+    img {
+      border-radius: 50%;
+      border-width: 0.15rem;
+      border-style: solid;
+      width: 2.3rem;
+      height: 2.3rem;
+    }
+  }
 }
 
 article:nth-of-type(1) {
