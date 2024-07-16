@@ -6,10 +6,24 @@ $light_gray: hsl(0, 0%, 81%);
 $light_grayish_blue: hsl(210, 46%, 95%);
 
 @mixin dark-light-article($isLight: false) {
-  color: $light_gray;
-
   @if $isLight {
     color: $very_dark_blackish_blue;
+
+    .quote {
+      color: scale-color($very_dark_blackish_blue, $alpha: -30%);
+    }
+    .author-status {
+      color: scale-color($very_dark_blackish_blue, $alpha: -50%);
+    }
+  } @else {
+    color: $white;
+
+    .quote {
+      color: scale-color($white, $alpha: -30%);
+    }
+    .author-status {
+      color: scale-color($white, $alpha: -50%);
+    }
   }
 }
 
@@ -66,13 +80,23 @@ main {
   }
 }
 
+h3 {
+  font-size: 1.55rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
 article {
   padding-block: 1.9rem;
   padding-inline: 2.4rem;
+  border-radius: 8px;
 
   .author-profile {
     display: flex;
     gap: 1.25rem;
+    margin-bottom: 1.25rem;
 
     img {
       border-radius: 50%;
@@ -81,6 +105,19 @@ article {
       width: 2.3rem;
       height: 2.3rem;
     }
+    .author-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1125rem;
+    }
+    .author-status {
+      font-size: 0.85rem;
+    }
+  }
+
+  .quote {
+    margin-top: 3.2rem;
+    line-height: 1.5rem;
   }
 }
 
@@ -89,6 +126,17 @@ article:nth-of-type(1) {
 
   grid-area: a;
   background-color: $moderate_violet;
+  background-image: url("../images/bg-pattern-quotation.svg");
+  background-position: top right 11%;
+  background-repeat: no-repeat;
+
+  img {
+    border-color: scale-color($white, $alpha: -50%);
+  }
+
+  @media (min-width: 60rem) {
+    background-position: top right 18%;
+  }
 }
 
 article:nth-of-type(2) {
@@ -96,6 +144,10 @@ article:nth-of-type(2) {
 
   grid-area: b;
   background-color: $very_dark_grayish_blue;
+
+  img {
+    border-color: $light_gray;
+  }
 }
 
 article:nth-of-type(3) {
@@ -103,6 +155,10 @@ article:nth-of-type(3) {
 
   grid-area: c;
   background-color: $white;
+
+  img {
+    border-color: $white;
+  }
 }
 
 article:nth-of-type(4) {
@@ -110,6 +166,10 @@ article:nth-of-type(4) {
 
   grid-area: d;
   background-color: $very_dark_blackish_blue;
+
+  img {
+    border-color: scale-color($moderate_violet, $alpha: -30%);
+  }
 }
 
 article:nth-of-type(5) {
@@ -117,4 +177,8 @@ article:nth-of-type(5) {
 
   grid-area: e;
   background-color: $white;
+
+  img {
+    border-color: $white;
+  }
 }
