@@ -53,13 +53,9 @@ body {
 main {
   display: grid;
   place-items: center;
-  height: 100%;
+  grid-auto-rows: minmax(calc(100vh - 11rem), 1fr);
   margin-inline: 1.8rem;
-  margin-block: 1.8rem;
-
-  // @media (min-width: 70rem) {
-  //   margin-block: 12.5rem;
-  // }
+  margin-block: 5.5rem;
 }
 
 .card-container {
