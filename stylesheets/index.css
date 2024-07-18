@@ -30,6 +30,7 @@ main {
   width: fit-content;
   margin-inline: auto;
   row-gap: 2rem;
+  filter: drop-shadow(6px 6px 10px #cfcfcf);
   grid-template-areas: "a" "b" "c" "d" "e"; }
   @media (min-width: 35rem) {
     .card-container {

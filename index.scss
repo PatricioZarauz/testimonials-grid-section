@@ -64,6 +64,7 @@ main {
   width: fit-content;
   margin-inline: auto;
   row-gap: 2rem;
+  filter: drop-shadow(6px 6px 10px $light_gray);
   grid-template-areas:
     "a"
     "b"
